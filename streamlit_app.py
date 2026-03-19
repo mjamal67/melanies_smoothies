@@ -1,7 +1,7 @@
 # Import python packages
 import streamlit as st
 from snowflake.snowpark.functions import col
-from snowflake.snowpark.functions import requests  
+import requests  
 
 # Write directly to the app
 #st.title(f"Example Streamlit App :balloon: {st.__version__}")
