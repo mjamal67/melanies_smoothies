@@ -5,7 +5,7 @@ import requests
 import pandas as pd
 
 # Write directly to the app
-#st.title(f"Example Streamlit App :balloon: {st.__version__}")
+
 st.title(f":cup_with_straw: Customize Your Smoothie :cup_with_straw: ")
 st.write(
   """Choose the fruits you want in your custom Smoothie!
@@ -17,7 +17,6 @@ st.write ('The name of your smoothie will be: ', name_on_order)
 
 # st.selectbox(label, options, index=0, format_func=special_internal_function, key=None, help=None, on_change=None, args=None, kwargs=None, *, placeholder=None, disabled=False, label_visibility="visible", accept_new_options=False, width="stretch", bind=None)
 # option = st.selectbox("What is your favourite fruit?", ('Banana','Strawberry','Peaches'))
-
 # st.write('You favourite fruit is:', option)
 
 # session = get_active_session()
@@ -51,13 +50,13 @@ if ingredient_list:
         st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
 
         st.subheader(fruit_chosen + ' Nutrition Information')
-        # smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen) 
+        #smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen) 
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/{search_on}") 
       
-        #smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/{search_on}") 
-        fruityvice_response     = requests.get("https://fruityvice.com/ap/fruit/" + fruit_chosen)
+        # fruityvice_response     = requests.get("https://fruityvice.com/ap/fruit/" + fruit_chosen)
       
-        # sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
-        sf_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+        # sf_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
       
     #st.write(ingredients_string)
 
